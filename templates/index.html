@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metadata Extractor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="page-shell">
+        <header class="hero">
+            <div class="hero-copy">
+                <p class="eyebrow">File Intelligence</p>
+                <h1>Metadata Extractor</h1>
+                <p class="hero-text">Inspect documents, images, PDFs, and videos with a smooth, modern workflow.</p>
+            </div>
+            <div class="hero-panel">
+                <div class="panel-card">
+                    <span class="panel-label">Quick action</span>
+                    <p>Upload a file to reveal hidden metadata in seconds.</p>
+                </div>
+            </div>
+        </header>
+
+        <main class="content-grid">
+            <section class="card upload-card">
+                <h2>Analyze a file</h2>
+                <form action="/upload" method="POST" enctype="multipart/form-data">
+                    <label class="upload-dropzone" for="fileInput">
+                        <span class="drop-title">Choose a file</span>
+                        <span class="drop-subtitle">Supported formats: document, image, PDF, video</span>
+                        <input id="fileInput" type="file" name="file" required>
+                    </label>
+                    <button type="submit">Analyze File</button>
+                </form>
+            </section>
+
+            <section class="card result-card">
+                {% if metadata %}
+                    <div class="section-heading">
+                        <h2>Extracted metadata</h2>
+                        <span class="pill">{{ metadata|length }} properties</span>
+                    </div>
+                    <div class="table-wrap">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Property</th>
+                                    <th>Value</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for key, value in metadata.items() %}
+                                <tr>
+                                    <td>{{ key }}</td>
+                                    <td>{{ value }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                {% else %}
+                    <div class="empty-state">
+                        <h2>Waiting for analysis</h2>
+                        <p>Your extracted metadata will appear here after you upload a file.</p>
+                    </div>
+                {% endif %}
+            </section>
+        </main>
+
+        <footer class="footer">
+            Metadata Extractor • Cybersecurity Project
+        </footer>
+    </div>
+</body>
+</html>
+
+</html>
