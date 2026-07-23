@@ -8,23 +8,49 @@
 </head>
 <body>
     <div class="page-shell">
-        <header class="hero">
-            <div class="hero-copy">
-                <p class="eyebrow">File Intelligence</p>
-                <h1>Metadata Extractor</h1>
-                <p class="hero-text">Inspect documents, images, PDFs, and videos with a smooth, modern workflow.</p>
+        <header class="topbar">
+            <div class="brand">
+                <div class="brand-mark">MI</div>
+                <div>
+                    <p class="eyebrow">File Intelligence</p>
+                    <h1>Metadata Extractor</h1>
+                </div>
             </div>
+            <div class="topbar-pill">Cybersecurity Toolkit</div>
+        </header>
+
+        <section class="hero">
+            <div class="hero-copy">
+                <p class="eyebrow">Modern analysis workflow</p>
+                <h2>Inspect documents, images, PDFs, and videos in one clean dashboard.</h2>
+                <p class="hero-text">Upload a file to reveal hidden metadata, investigate ownership details, and understand what the file contains at a glance.</p>
+                <div class="hero-stats">
+                    <div class="stat-chip">
+                        <strong>Fast</strong>
+                        <span>One-click analysis</span>
+                    </div>
+                    <div class="stat-chip">
+                        <strong>Secure</strong>
+                        <span>Private local workflow</span>
+                    </div>
+                </div>
+            </div>
+
             <div class="hero-panel">
                 <div class="panel-card">
                     <span class="panel-label">Quick action</span>
-                    <p>Upload a file to reveal hidden metadata in seconds.</p>
+                    <p>Drop in a file to surface metadata such as timestamps, author, and file fingerprint information.</p>
                 </div>
             </div>
-        </header>
+        </section>
 
         <main class="content-grid">
             <section class="card upload-card">
-                <h2>Analyze a file</h2>
+                <div class="section-heading compact">
+                    <h2>Analyze a file</h2>
+                    <span class="pill">Upload</span>
+                </div>
+
                 <form action="/upload" method="POST" enctype="multipart/form-data">
                     <label class="upload-dropzone" for="fileInput">
                         <span class="drop-title">Choose a file</span>
@@ -73,6 +99,4 @@
         </footer>
     </div>
 </body>
-</html>
-
 </html>
